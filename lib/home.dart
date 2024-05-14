@@ -199,6 +199,24 @@ class _HomeScreenState extends State<HomeScreen> {
                   },
                   child: Text('Get Data')),
             ),
+            ElevatedButton(
+              onPressed: () async {
+                await widget.browser.open(
+                  url: Uri.parse(
+                      "https://ipqualityscore.com/device-fingerprinting"),
+                  options: ChromeSafariBrowserClassOptions(
+                    android: AndroidChromeCustomTabsOptions(
+                      shareState: CustomTabsShareState.SHARE_STATE_ON,
+                      enableUrlBarHiding: true,
+                    ),
+                    ios: IOSSafariOptions(
+                      barCollapsingEnabled: true,
+                    ),
+                  ),
+                );
+              },
+              child: const Text('Tabs'),
+            ),
           ],
         ),
       ),
